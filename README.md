@@ -30,17 +30,11 @@ Test the C Program for the desired output.
 #include <unistd.h>
 
 int main(void) {
-    // Variable to store the calling function's process ID
     pid_t process_id;
-    // Variable to store the parent function's process ID
     pid_t p_process_id;
-
-    // getpid() - will return the process ID of the calling function
     process_id = getpid();
-    // getppid() - will return the process ID of the parent function
     p_process_id = getppid();
 
-    // Printing the process IDs
     printf("The process ID: %d\n", process_id);
     printf("The process ID of the parent function: %d\n", p_process_id);
 
@@ -62,12 +56,10 @@ int main() {
     pid = fork();
 
     if (pid == 0) {
-        // Child process
         printf("I am child, my pid is %d\n", getpid());
         printf("My parent pid is: %d\n", getppid());
         exit(0);
     } else {
-        // Parent process
         printf("I am parent, my pid is %d\n", getpid());
         // Sleep for some time to let child process execute first
         sleep(100);
